@@ -1,8 +1,4 @@
-/*
-Create by Learn Web Developement
-Youtube channel : https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA
-*/
-
+// create canvas
 const cvs = document.getElementById("snake");
 const ctx = cvs.getContext("2d");
 
@@ -10,7 +6,6 @@ const ctx = cvs.getContext("2d");
 const box = 32;
 
 // load images
-
 const ground = new Image();
 ground.src = "img/ground.png";
 
@@ -18,7 +13,6 @@ const foodImg = new Image();
 foodImg.src = "img/food.png";
 
 // load audio files
-
 let dead = new Audio();
 let eat = new Audio();
 let up = new Audio();
@@ -34,7 +28,6 @@ left.src = "audio/left.mp3";
 down.src = "audio/down.mp3";
 
 // create the snake
-
 let snake = [];
 
 snake[0] = {
@@ -43,18 +36,15 @@ snake[0] = {
 };
 
 // create the food
-
 let food = {
     x : Math.floor(Math.random()*17+1) * box,
     y : Math.floor(Math.random()*15+3) * box
 }
 
 // create the score var
-
 let score = 0;
 
 //control the snake
-
 let d;
 
 document.addEventListener("keydown",direction);
@@ -87,7 +77,6 @@ function collision(head,array){
 }
 
 // draw everything to the canvas
-
 function draw(){
 
     ctx.drawImage(ground,0,0);
@@ -127,14 +116,12 @@ function draw(){
     }
 
     // add new Head
-
     let newHead = {
         x : snakeX,
         y : snakeY
     }
 
     // game over
-
     if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
         clearInterval(game);
         dead.play();
@@ -148,7 +135,6 @@ function draw(){
 }
 
 // call draw function every 100 ms
-
 let game = setInterval(draw,100);
 
 
